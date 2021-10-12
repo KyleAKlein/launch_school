@@ -1,9 +1,20 @@
-flintstones = ["Fred", "Barney", "Wilma", "Betty", "Pebbles", "BamBam"]
+munsters = {
+  "Herman" => { "age" => 32, "gender" => "male" },
+  "Lily" => { "age" => 30, "gender" => "female" },
+  "Grandpa" => { "age" => 402, "gender" => "male" },
+  "Eddie" => { "age" => 10, "gender" => "male" },
+  "Marilyn" => { "age" => 23, "gender" => "female"}
+}
 
-flintstones_hash = {}
-flintstones.each_with_index do |name, index|
-  flintstones_hash[name] = index
-end
+munsters.each do |name, details|
+	case details["age"]
+		when 0..18
+			details["age_group"] = "kid" 
+		when 18...65
+			details["age_group"] = "adult"
+		else
+			details["age_group"] = "senior"
+		end
+	end
 
-p flintstones_hash
-#Turn this array into a hash where the names are the keys and the values are the positions in the array.
+	p munsters
