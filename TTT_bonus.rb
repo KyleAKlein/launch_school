@@ -64,8 +64,39 @@ def player_places_piece!(brd)
 end
 
 def computer_places_piece!(brd)
-  square = empty_squares(brd).sample
-  brd[square] = COMPUTER_MARKER
+  square = nil
+
+   # offense
+   if !square
+    WINNING_LINES.each do |line|
+      square = find_at_risk_square(line, brd, COMPUTER_MARKER)
+      break if square
+    end
+  end
+
+  # defense first
+  WINNING_LINES.each do |line|
+    square = find_at_risk_square(line, brd, PLAYER_MARKER)
+    break if square
+  end
+
+  # Pick square #5
+  
+
+  # just pick a square
+  if !square
+    square = empty_squares(brd).sample
+  end
+
+    brd[square] = COMPUTER_MARKER
+end
+
+def find_at_risk_square(line, board, marker)
+  if board.values_at(*line).count(PLAYER_MARKER) == 2
+    board.select{|k,v| line.include?(k) && v == INITIAL_MARKER}.keys.first
+  else
+    nil
+  end
 end
 
 def board_full?(brd)
@@ -84,10 +115,22 @@ def detect_winner(brd)
   nil
 end
 
+def champion?(player_score, computer_score)
+  case
+  when player_score == 5
+    puts 'Player is the champion with 5 points! Good Game!'
+    true
+  when computer_score == 5
+    puts 'Computer is the champion with 5 points! Good Game!'
+    true
+  end
+end
+
+player_score = 0
+computer_score = 0
+
 loop do
   board = initialize_board
-  player_score = 0
-  comp_score = 0
 
   loop do
     display_board(board)
@@ -103,9 +146,13 @@ loop do
 
   if someone_won?(board)
     win = prompt "#{detect_winner(board)} won!"
+    player_score += 1 if detect_winner(board) == 'Player'
+    computer_score += 1 if detect_winner(board) == 'Computer'
   else
     prompt 'It\'s a tie!'
   end
+
+  break if champion?(player_score, computer_score)
 
   prompt 'Play again? (y or n)'
   answer = gets.chomp
