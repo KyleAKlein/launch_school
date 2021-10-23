@@ -12,5 +12,3 @@ p running_total([]) == []
 # Array with the same number of elements, and each element has the 
 # running total from the original Array.
 
-# step 1: take first element in array and add it to the second element. 
-# step 2: repeat
