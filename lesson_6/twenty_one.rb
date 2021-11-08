@@ -17,9 +17,8 @@ def face_check?(card)
   end
 end
 
-def hit_1
-  face_check?(DECK_OF_CARDS.sample)
-end
+hit_1 = face_check?(DECK_OF_CARDS.sample)
+
 
 def hit_2
   face_check?(DECK_OF_CARDS.sample)
@@ -71,7 +70,7 @@ loop do
       print "You got a #{hit_1},"
         if player_new_total > 21
           puts " you bust!"
-          break 
+          break
         else
           puts " your new total is #{player_new_total}."
         end
