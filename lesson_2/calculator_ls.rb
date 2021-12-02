@@ -1,4 +1,4 @@
- ruby def prompt(message)
+def prompt(message)
 	Kernel.puts("=> #{message}")
 end
 
