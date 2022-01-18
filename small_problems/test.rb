@@ -1,8 +1,21 @@
-puts "Give me a name:"
-user_input = gets.chomp
+HASH = {
+"a" => 1, "e" => 2, "i" => 3, "o" => 4, "u" => 5
+}
+HASH_KEYS = HASH.keys
+HASH_VAL = HASH.values
 
-if user_input == ""
-  user_input = "Teddy"
-end
+# def encode(s)
+#   string = s.chars
+#   string.map! do |x|
+#     if HASH_KEYS.include?(x)
+#       x = HASH[x]
+#     else
+#       x
+#     end
+#   end
+#   p string.join
+# end
+#encode("hello")
 
-puts "#{user_input} is #{rand(20..200)} years old!"
+p HASH["a"]
+p HASH[1]
