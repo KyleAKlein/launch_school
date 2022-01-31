@@ -52,13 +52,13 @@ BLOCK_LETTER = {
 
 VAL = BLOCK_LETTER.values
 
-def helper(l)
+def helper(character)
   VAL.each do |arr|
     arr.each_with_index do |letter, i|
-      if letter == l
+      if letter == character
         VAL.delete_at(i) 
         return true
-      elsif letter != l
+      elsif letter != character
         next
       end
     end
@@ -78,6 +78,6 @@ def block_word?(string)
   end
 end
 
-# p block_word?('JEST') == true
-# p block_word?('BATH') == true
-p block_word?('BUTCH') == false
+p block_word?('JEST') == true
+p block_word?('BATH') == true
+p block_word?('SUCH') == false

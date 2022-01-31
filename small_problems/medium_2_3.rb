@@ -1,42 +1,35 @@
-# lower_arr = []
-# upper_arr = []
-# neither_arr = []
-
-# def helper(string)
-#   l_percent = lower_arr.size / string.size
-#   u_percent = upper_arr.size / string.size
-#   n_percent = neither_arr.size / string.size
-# end
-
-
 def letter_percentages(string)
-  spl = string.split('')
-  p spl
-  spl.each do |x|
+  characters = string.split('')
+  hash = { 
+  :lowercase => 0, :uppercase => 0, :neither => 0
+}
+
+  characters.each do |x|
     case x
     when 'a'...'z'
-      puts "hello"
+      hash[:lowercase] += 1
     when 'A'...'Z'
-      puts "goodbye"
+      hash[:uppercase] += 1
     when ' '
-      puts "nothing"
+      hash[:neither] += 1
     when '0'...'9'
-      puts "number"
+      hash[:neither] += 1
     else
-      puts "truthy"
+      hash[:neither] += 1
+     end
     end
+  total = hash[:lowercase] + hash[:uppercase] + hash[:neither]
 
-  #helper(string)
-  end
-  # hash = { lowercase: l_percent, uppercase: u_percent, neither: n_percent }
+  new_hash = {
+    :lowercase => ( hash[:lowercase].to_f / total.to_f ) * 100, :uppercase => ( hash[:uppercase].to_f / total.to_f ) * 100, :neither => ( hash[:neither].to_f / total.to_f ) * 100
+  }
 
+  new_hash
 end
 
-
 p letter_percentages('abCdef 123') == { lowercase: 50.0, uppercase: 10.0, neither: 40.0 }
-
-#letter_percentages('AbCd +Ef') == { lowercase: 37.5, uppercase: 37.5, neither: 25.0 }
-#letter_percentages('123') == { lowercase: 0.0, uppercase: 0.0, neither: 100.0 }
+p letter_percentages('AbCd +Ef') == { lowercase: 37.5, uppercase: 37.5, neither: 25.0 }
+p letter_percentages('123') == { lowercase: 0.0, uppercase: 0.0, neither: 100.0 }
 
 
 =begin
