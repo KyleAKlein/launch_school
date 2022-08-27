@@ -1213,3 +1213,102 @@ Error:
 # p is_prime?(6)
 # p is_prime?(7)
 # p is_prime?(1)
+
+
+
+=begin
+# Write a method same_char_collapse that takes in a string and 
+# returns a collapsed version of the string. 
+
+# To collapse the string, 
+# we repeatedly delete 2 adjacent characters that are the same until 
+# there are no such adjacent characters. If there are multiple pairs that 
+# can be collapsed, delete the leftmost pair first before
+# moving onto the next pair. 
+  
+# For example, we take the 
+# following steps to collapse "zzzxaaxy": zzzxaaxy -> zxaaxy -> zxxy -> zy
+=end
+
+=begin
+
+Problem:
+  Take a string and return a collapsed version of the string.
+
+Input:
+  string
+Output:
+  string
+
+Rules:
+  explicit:
+  -delete 2 adjacent characters that are the same until there are no such adjacent characters
+  -if there are multiple pairs that can be collapsed, delete leftmost pair first.
+  implicit:
+  -move from left to right
+  -after deleting a repeating pair of char, iterate again from start through mutated word.
+
+examples:
+same_char_collapse("zzzxaaxy") == "zy"
+  -zxaaxy, zxxy, zy
+same_char_collapse("uqrssrqvtt") == "uv"
+  -uqrrqvtt, uqqvtt, uvtt, uv
+same_char_collapse("aabcddce") == "be"
+  -bcddce, bcce, be
+same_char_collapse("uqrssrqvttu") == "uvu"
+  -uqrrqvttu, uqqvttu, uvttu, uvu
+
+Data Structures:
+answer_string = ''
+array = answer_string.chars
+
+Algorithm:
+  step 1: initialize answer_string to passed in argument
+  Step 2: break string into chars and put into an array
+  Step 3: iterate through the array, keeping track of the index,
+    if the current char and next char are the same, delete both characters.
+      reassign answer_string to new deleted word.
+      break from iteration.
+  Step 4: repeat until no changes are made. return answer_string
+
+=end
+
+# def same_char_collapse(str)
+#   ans_str = str
+  
+#   (str.size/2).times do 
+#     arr = ans_str.chars
+
+
+#   arr.each_with_index do |char, idx|
+#     if char == arr[idx+1]
+#       ans_str[idx+1] = ''
+#       ans_str[idx] = ''
+     
+
+#       break
+#     end
+#   end
+#   end
+#   ans_str
+# end
+
+# p same_char_collapse("zzzxaaxy") == "zy"
+# p same_char_collapse("uqrssrqvtt") == "uv"
+# p same_char_collapse("aabcddce") == "be"
+# p same_char_collapse("uqrssrqvttu") == "uvu"
+
+
+def mixedup(string)
+  ans_arr = []
+  word_one = ''
+  word_two = ''
+  string.chars.each_with_index do |char, idx|
+    if idx.even?
+      word_one << char
+    else
+      word_two << char
+    end
+  end
+  ans_arr = [word_one, word_two]
+end

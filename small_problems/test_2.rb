@@ -424,6 +424,145 @@ Algorithm:
 # p block_word?('jest') == true
 
 
-p ("a-z").include?('b')
-p "encoded".tr('a-z', 'za-y')
-p "encoded".tr('a'..'z','z''a'..'y')
+# p ("a-z").include?('b')
+# p "encoded".tr('a-z', 'za-y')
+# p "encoded".tr('a'..'z','z''a'..'y')
+
+
+=begin
+Longest vowel chain
+The vowel substrings in the word codewarriors are o,e,a,io. The longest of these has a length of 2. Given a lowercase string that has alphabetic characters only and no spaces, return the length of the longest vowel substring. Vowels are any of aeiou.
+
+
+=end
+
+def solve(string)
+  high_count = 0
+  count = 0
+
+  string.chars.each do |letter|
+    if 'aeiou'.include?(letter)
+      count += 1
+    elsif count > high_count
+      high_count = count
+      count = 0
+    else
+      count = 0
+    end
+
+  end
+
+  if high_count > count
+    return high_count
+  else
+    count
+  end
+    
+end
+
+p solve("codewarriors") == 2
+p solve("suoidea") == 3
+p solve("iuuvgheaae") == 4
+p solve("ultrarevolutionariees") == 3
+p solve("strengthlessnesses") == 1
+p solve("cuboideonavicuare") == 2
+p solve("chrononhotonthuooaos") == 5 
+p solve("iiihoovaeaaaoougjyaw") == 8
+
+
+
+=begin 
+
+  You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. If there is no index that would make this happen, return -1.
+  
+  For example:
+  
+  Let's say you are given the array {1,2,3,4,3,2,1}:
+  Your function will return the index 3, because at the 3rd position of the array, the sum of left side of the index ({1,2,3}) and the sum of the right side of the index ({3,2,1}) both equal 6.
+  
+  Let's look at another one.
+  You are given the array {1,100,50,-51,1,1}:
+  Your function will return the index 1, because at the 1st position of the array, the sum of left side of the index ({1}) and the sum of the right side of the index ({50,-51,1,1}) both equal 1.
+  
+  Last one:
+  You are given the array {20,10,-80,10,10,15,35}
+  At index 0 the left side is {}
+  The right side is {10,-80,10,10,15,35}
+  They both are equal to 0 when added. (Empty arrays are equal to 0 in this problem)
+  Index 0 is the place where the left side and right side are equal.
+  
+  Note: Please remember that in most programming/scripting languages the index of an array starts at 0.
+  
+  Input:
+  An integer array of length 0 < arr < 1000. The numbers in the array can be any integer positive or negative.
+  
+  Output:
+  The lowest index N where the side to the left of N is equal to the side to the right of N. If you do not find an index that fits these rules, then you will return -1.
+  
+  Note:
+  If you are given an array with multiple answers, return the lowest correct index.
+  
+  DATA STRUCTURES:
+    - index (answer) 
+    - left_arr
+    - right_arr
+  
+  STEPS:
+  split the array into left_arr and right_arr
+  sum the first array and compare it to the sum of second array 
+  - if the sum of left_arr is equal to the sum of right_arr 
+    return the index of where the original array was split 
+  - if it is not then increase how_many by 1 
+  
+  find_even_index([1,2,3,4,3,2,1]) == 3
+  find_even_index([1,100,50,-51,1,1]) == 1
+  find_even_index([1,2,3,4,5,6]) == -1
+  find_even_index([20,10,30,10,10,15,35]) == 3
+  find_even_index([20,10,-80,10,10,15,35]) == 0
+  find_even_index([10,-80,10,10,15,35,20]) == 6
+  find_even_index(Array(1..100)) == -1
+  find_even_index([0,0,0,0,0]) == 0 #"Should pick the first index if more cases are valid"
+  find_even_index([-1,-2,-3,-4,-3,-2,-1]) == 3
+  find_even_index(Array(-100..-1)) == -1
+  
+  
+  
+=end
+def find_even_index(arr)
+  index = 0
+  l_arr = []
+  r_arr = []
+  how_many = 0
+  right_elements = arr.size
+    arr.size.times do
+
+    # l_arr = []
+    # r_arr = [10, -80, 10, 10, 15, 35]
+    # index = 0 (20)arr[
+      l_arr = arr[0, how_many] #[0, how_many]
+      r_arr = arr[index, right_elements] #[2, 6-1]
+      p l_arr
+      p r_arr
+      if l_arr.sum == r_arr.sum 
+        return index 
+      else 
+        how_many += 1
+        right_elements -= 1
+      end 
+
+    end
+-1
+end
+
+
+p find_even_index([1,2,3,4,3,2,1]) 
+# == 3
+# p find_even_index([1,100,50,-51,1,1]) == 1
+# p find_even_index([1,2,3,4,5,6]) == -1
+# p find_even_index([20,10,30,10,10,15,35]) == 3
+# p find_even_index([20,10,-80,10,10,15,35]) == 0
+# find_even_index([10,-80,10,10,15,35,20]) == 6
+# find_even_index(Array(1..100)) == -1
+# find_even_index([0,0,0,0,0]) == 0 #"Should pick the first index if more cases are valid"
+# find_even_index([-1,-2,-3,-4,-3,-2,-1]) == 3
+# find_even_index(Array(-100..-1)) == -1

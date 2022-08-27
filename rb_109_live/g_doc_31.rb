@@ -8,9 +8,9 @@ Examples
 "Buckethead" is an anagram of "DeathCubeK"
 =end
 
-def is_anagram(string, string2)
-  string.downcase.chars.sort.join == string2.downcase.chars.sort.join
-end
+# def is_anagram(string, string2)
+#   string.downcase.chars.sort.join == string2.downcase.chars.sort.join
+# end
 
 p is_anagram('Creative', 'Reactive') == true
 p is_anagram("foefet", "toffee") == true

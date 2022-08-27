@@ -59,23 +59,23 @@ Algorithm:
 
 =end
 
-# def smaller_numbers_than_current(array)
-#   uniq_copy = array.uniq
-#   answer_array = []
+def smaller_numbers_than_current(array)
+  uniq_copy = array.uniq
+  answer_array = []
  
-#   if uniq_copy.size == 1
-#     return [0] * array.size
-#   end
+  if uniq_copy.size == 1
+    return [0] * array.size
+  end
 
-#   array.each do |num|
-#     answer_array << uniq_copy.count do |x|
-#       x < num
-#     end
-#   end
+  array.each do |num|
+    answer_array << uniq_copy.count do |x|
+      x < num
+    end
+  end
 
       
-#   answer_array
-# end
+  answer_array
+end
 
 p smaller_numbers_than_current([8,1,2,2,3]) == [3, 0, 1, 1, 2]
 p smaller_numbers_than_current([1,4,6,8,13,2,4,5,4]) == [0, 2, 4, 5, 6, 1, 2, 3, 2]
