@@ -16,13 +16,13 @@ the answer is
 because for this string "abcde" the minimum substring t, such that s is t repeated k times, is itself.
 =end
 
-def f(string)
-  array =[]
-  unique = string.split('').uniq.join
-  array << unique
+def subs(string)
 
-  split_array = string.scan(unique)
-  array << split_array.size
+end
+
+def f(string)
+  subs(string)
+ 
 end
 
 

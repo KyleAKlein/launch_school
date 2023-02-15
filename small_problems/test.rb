@@ -1228,6 +1228,16 @@ Error:
   
 # For example, we take the 
 # following steps to collapse "zzzxaaxy": zzzxaaxy -> zxaaxy -> zxxy -> zy
+
+examples:
+same_char_collapse("zzzxaaxy") == "zy"
+  -zxaaxy, zxxy, zy
+same_char_collapse("uqrssrqvtt") == "uv"
+  -uqrrqvtt, uqqvtt, uvtt, uv
+same_char_collapse("aabcddce") == "be"
+  -bcddce, bcce, be
+same_char_collapse("uqrssrqvttu") == "uvu"
+  -uqrrqvttu, uqqvttu, uvttu, uvu
 =end
 
 =begin

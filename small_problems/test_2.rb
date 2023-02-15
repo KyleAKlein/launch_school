@@ -436,38 +436,38 @@ The vowel substrings in the word codewarriors are o,e,a,io. The longest of these
 
 =end
 
-def solve(string)
-  high_count = 0
-  count = 0
+# def solve(string)
+#   high_count = 0
+#   count = 0
 
-  string.chars.each do |letter|
-    if 'aeiou'.include?(letter)
-      count += 1
-    elsif count > high_count
-      high_count = count
-      count = 0
-    else
-      count = 0
-    end
+#   string.chars.each do |letter|
+#     if 'aeiou'.include?(letter)
+#       count += 1
+#     elsif count > high_count
+#       high_count = count
+#       count = 0
+#     else
+#       count = 0
+#     end
 
-  end
+#   end
 
-  if high_count > count
-    return high_count
-  else
-    count
-  end
+#   if high_count > count
+#     return high_count
+#   else
+#     count
+#   end
     
-end
+# end
 
-p solve("codewarriors") == 2
-p solve("suoidea") == 3
-p solve("iuuvgheaae") == 4
-p solve("ultrarevolutionariees") == 3
-p solve("strengthlessnesses") == 1
-p solve("cuboideonavicuare") == 2
-p solve("chrononhotonthuooaos") == 5 
-p solve("iiihoovaeaaaoougjyaw") == 8
+# p solve("codewarriors") == 2
+# p solve("suoidea") == 3
+# p solve("iuuvgheaae") == 4
+# p solve("ultrarevolutionariees") == 3
+# p solve("strengthlessnesses") == 1
+# p solve("cuboideonavicuare") == 2
+# p solve("chrononhotonthuooaos") == 5 
+# p solve("iiihoovaeaaaoougjyaw") == 8
 
 
 
@@ -527,35 +527,35 @@ p solve("iiihoovaeaaaoougjyaw") == 8
   
   
   
-=end
-def find_even_index(arr)
-  index = 0
-  l_arr = []
-  r_arr = []
-  how_many = 0
-  right_elements = arr.size
-    arr.size.times do
+# =end
+# def find_even_index(arr)
+#   index = 0
+#   l_arr = []
+#   r_arr = []
+#   how_many = 0
+#   right_elements = arr.size
+#     arr.size.times do
 
-    # l_arr = []
-    # r_arr = [10, -80, 10, 10, 15, 35]
-    # index = 0 (20)arr[
-      l_arr = arr[0, how_many] #[0, how_many]
-      r_arr = arr[index, right_elements] #[2, 6-1]
-      p l_arr
-      p r_arr
-      if l_arr.sum == r_arr.sum 
-        return index 
-      else 
-        how_many += 1
-        right_elements -= 1
-      end 
+#     # l_arr = []
+#     # r_arr = [10, -80, 10, 10, 15, 35]
+#     # index = 0 (20)arr[
+#       l_arr = arr[0, how_many] #[0, how_many]
+#       r_arr = arr[index, right_elements] #[2, 6-1]
+#       p l_arr
+#       p r_arr
+#       if l_arr.sum == r_arr.sum 
+#         return index 
+#       else 
+#         how_many += 1
+#         right_elements -= 1
+#       end 
 
-    end
--1
-end
+#     end
+# -1
+# end
 
 
-p find_even_index([1,2,3,4,3,2,1]) 
+# p find_even_index([1,2,3,4,3,2,1]) 
 # == 3
 # p find_even_index([1,100,50,-51,1,1]) == 1
 # p find_even_index([1,2,3,4,5,6]) == -1

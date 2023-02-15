@@ -23,3 +23,21 @@ end
 
 p kebabize('myCamelCasedString') == 'my-camel-cased-string'
 p kebabize('myCamelHas3Humps') == 'my-camel-has-humps'
+
+# # 11/20/22 
+# def kebabize(string)
+#   ans_str = ''
+#   string = string.delete('^a-zA-Z')
+#   string.chars.each do |char|
+#     if char == char.upcase
+#       ans_str << '-'+ char.downcase
+#     else
+#       ans_str << char
+#     end
+#   end
+
+#   ans_str
+# end
+
+# p kebabize('myCamelCasedString') == 'my-camel-cased-string' 
+# p kebabize('myCamelHas3Humps') == 'my-camel-has-humps'

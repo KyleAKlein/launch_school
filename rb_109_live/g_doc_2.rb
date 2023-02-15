@@ -1,5 +1,7 @@
 =begin
+
 Find all pairs
+
 You are given array of integers, your task will be to count all pairs in that array and return their count.
 Notes:
 Array can be empty or contain only one value; in this case return 0

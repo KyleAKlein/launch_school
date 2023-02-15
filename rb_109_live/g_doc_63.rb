@@ -14,16 +14,29 @@ Should return: 160 (the only even number)
 =end
 
 
-def method(array)
-  odd = array.select { |num| num.odd? }
-  even = array.select {|n| n.even? }
-  if odd.size < even.size
-    return odd.pop
-  elsif odd.size > even.size
-    return even.pop
-  end
+# def method(array)
+#   odd = array.select { |num| num.odd? }
+#   even = array.select {|n| n.even? }
+#   if odd.size < even.size
+#     return odd.pop
+#   elsif odd.size > even.size
+#     return even.pop
+#   end
 
-end
+# end
 
-p method([2, 4, 0, 100, 4, 11, 2602, 36]) == 11
-p method([160, 3, 1719, 19, 11, 13, -21]) == 160
+# p method([2, 4, 0, 100, 4, 11, 2602, 36]) == 11
+# p method([160, 3, 1719, 19, 11, 13, -21]) == 160
+
+# hash = { a:1, b:2, c:3 }
+# p hash
+
+
+# [ 1, 0, 0 ]
+# [ 0, 0, 0 ]
+# [ 0, 0, 0 ]
+
+x = 0
+y = 100
+h = {x:, y:}
+p h

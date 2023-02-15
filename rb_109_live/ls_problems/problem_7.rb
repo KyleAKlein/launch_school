@@ -77,7 +77,7 @@
 
 # p common_chars(['bella', 'label', 'roller']) == ['e', 'l', 'l']
 # p common_chars(['cool', 'lock', 'cook']) == ['c', 'o']
-# p common_chars(['hello', 'goodbye', '\booya', 'random']) == ['o']
+# p common_chars(['hello', 'goodbye', 'booya', 'random']) == ['o']
 # p common_chars(['aabbaaaa', 'ccdddddd', 'eeffee', 'ggrrrrr', 'yyyzzz']) == []
 
 
@@ -171,34 +171,3 @@ Algorithm:
 
 =end
 
-def common_chars(array)
-  answer_arr = []
-  counter = 0
-  magic_word = array[0]
-
-  magic_word.chars.each do |char|
-    counter = 0
-    array.each do |word|
-      
-      if word.include?(char)
-        counter += 1
-        p counter
-      else 
-        next
-      end
-
-      if counter == array.size
-        word = word.sub!(char, '')
-        answer_arr << char
-      end
-
-    end
-  end
-  p answer_arr
-
-end
-
-# p common_chars(['bella', 'label', 'roller']) == ['e', 'l', 'l']
-p common_chars(['cool', 'lock', 'cook']) == ['c', 'o']
-# p common_chars(['hello', 'goodbye', 'booya', 'random']) == ['o']
-# p common_chars(['aabbaaaa', 'ccdddddd', 'eeffee', 'ggrrrrr', 'yyyzzz']) == []

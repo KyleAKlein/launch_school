@@ -144,20 +144,3 @@ end
 
 find_substrings("hello")
 
-
-def find_substrings(string)
-  (0...string.size).each_with_object([]) do |idx1, arr|
-    (idx1...string.size).each do |idx2|
-      arr << string[idx1..idx2]
-    end
-  end
-end
-
-
-def find_substrings(string)
-  (0...string.size).each_with_object([]) do |idx1, arr|
-    (idx1...string.size).each do |idx2|
-      arr << string[idx1..idx2]
-    end
-  end
-end
